@@ -1,0 +1,104 @@
+NAME
+    CAD::Drawing::IO::PgDB - PostgreSQL save / load methods
+
+NOTICE
+    This module is considered pre-ALPHA and under-documented. Its use is
+    strongly discouraged except under experimental conditions. Particularly
+    susceptible to change will be the table structure of the database, which
+    currently does not yet even have any auto-create method.
+
+AUTHOR
+      Eric L. Wilhelm
+      ewilhelm at sbcglobal dot net
+      http://pages.sbcglobal.net/mycroft
+
+COPYRIGHT
+    This module is copyright (C) 2003 by Eric L. Wilhelm and A. Zahner Co.
+
+LICENSE
+    This module is distributed under the same terms as Perl. See the Perl
+    source package for details.
+
+    You may use this software under one of the following licenses:
+
+      (1) GNU General Public License
+        (found at http://www.gnu.org/copyleft/gpl.html)
+      (2) Artistic License
+        (found at http://www.perl.com/pub/language/misc/Artistic.html)
+
+NO WARRANTY
+    This software is distributed with ABSOLUTELY NO WARRANTY. The author and
+    his employer will in no way be held liable for any loss or damages
+    resulting from its use.
+
+Modifications
+    The source code of this module is made freely available and
+    distributable under the GPL or Artistic License. Modifications to and
+    use of this software must adhere to one of these licenses. Changes to
+    the code should be noted as such and this notification (as well as the
+    above copyright information) must remain intact on all copies of the
+    code.
+
+    Additionally, while the author is actively developing this code,
+    notification of any intended changes or extensions would be most helpful
+    in avoiding repeated work for all parties involved. Please contact the
+    author with any such development plans.
+
+SEE ALSO
+            CAD::Drawing
+            DBI
+            DBD::Pg
+
+Changes
+      0.01 First public release
+      0.02 Likely vast improvements
+
+Requisite Plug-in Functions
+    See CAD::Drawing::IO for a description of the plug-in architecture.
+
+  check_type
+
+    Returns true if $type is "circ" or $filename is a directory containing a
+    ".circ" file.
+
+      $fact = check_type($filename, $type);
+
+Back-End Input and output methods
+    The functions load() and save() are responsible for determining the
+    filetype (with forced types available via $opt->{type}.) These then call
+    the appropriate load<thing> or save<thing> functions.
+
+  load
+
+    Loads a CAD::Drawing object from an SQL database. $spec should be of the
+    form required by the database driver.
+
+    $opts->{auth} = ["username", "password"] may be required to create a
+    connection.
+
+      $drw->load($spec, $opts);
+
+  save
+
+      $drw->save($spec, $opts);
+
+  cleardb
+
+    Deletes the drawing and all of its entities from the database.
+
+      $drw->cleardb();
+
+Internals
+  parse_options
+
+    Allows options to come in through the $spec or %opts.
+
+      %options = parse_options($spec, \%opts);
+
+  sort_addr
+
+    Sorts through @addr_list and returns a hash of array references for each
+    entity type.
+
+      %these = sort_addr($layer, \@addr_list);
+
