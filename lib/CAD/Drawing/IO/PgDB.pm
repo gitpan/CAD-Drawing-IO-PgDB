@@ -1,5 +1,5 @@
 package CAD::Drawing::IO::PgDB;
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 use CAD::Drawing;
 use CAD::Drawing::Defined;
@@ -27,13 +27,14 @@ currently does not yet even have any auto-create method.
 
 =head1 AUTHOR
 
-  Eric L. Wilhelm
-  ewilhelm at sbcglobal dot net
-  http://pages.sbcglobal.net/mycroft
+Eric L. Wilhelm <ewilhelm at cpan dot org>
+
+http://scratchcomputing.com
 
 =head1 COPYRIGHT
 
-This module is copyright (C) 2003 by Eric L. Wilhelm and A. Zahner Co.
+This module is copyright (C) 2004-2006 by Eric L. Wilhelm.  Portions
+copyright (C) 2003 by Eric L. Wilhelm and A. Zahner Co.
 
 =head1 LICENSE
 
@@ -49,9 +50,9 @@ You may use this software under one of the following licenses:
 
 =head1 NO WARRANTY
 
-This software is distributed with ABSOLUTELY NO WARRANTY.  The author
-and his employer will in no way be held liable for any loss or damages
-resulting from its use.
+This software is distributed with ABSOLUTELY NO WARRANTY.  The author,
+his former employer, and any other contributors will in no way be held
+liable for any loss or damages resulting from its use.
 
 =head1 Modifications
 
@@ -67,17 +68,11 @@ notification of any intended changes or extensions would be most helpful
 in avoiding repeated work for all parties involved.  Please contact the
 author with any such development plans.
 
-
 =head1 SEE ALSO
 
 	CAD::Drawing
 	DBI
 	DBD::Pg
-
-=head1 Changes
-
-  0.01 First public release
-  0.02 Likely vast improvements
 
 =cut
 ########################################################################
